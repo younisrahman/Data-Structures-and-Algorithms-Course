@@ -1,2 +1,1 @@
-yr.name = "Younis";
-    // rr.name = "Rahman";
+(arr[1] * 10) + arr[2]
