@@ -1,1 +1,3 @@
-(arr[1] * 10) + arr[2]
+ = new node(val);
+    // n->next = head;
+    // head = n;
