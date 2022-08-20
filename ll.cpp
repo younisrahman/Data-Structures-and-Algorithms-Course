@@ -53,6 +53,21 @@ void insertAfterPosition(node *&head, int val, int pos)
     }
 }
 
+void insertAfterValue(node *&head, int val, int pos)
+{
+    node *n = new node(val);
+    node *temp = head;
+    while (temp != NULL && temp->data != pos)
+    {
+        temp = temp->next;
+    }
+    if (temp != NULL)
+    {
+        n->next = temp->next;
+        temp->next = n;
+    }
+}
+
 void display(node *head)
 {
     node *temp = head;
@@ -103,6 +118,8 @@ int main()
     searchByValue(head, 5);
     searchByValue(head, 7);
     insertAfterPosition(head, 6, 3);
+    display(head);
+    insertAfterValue(head, 10, 3);
     display(head);
 
     return 0;
