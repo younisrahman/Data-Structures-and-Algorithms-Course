@@ -67,6 +67,40 @@ void insertAfterValue(node *&head, int val, int pos)
         temp->next = n;
     }
 }
+void deleteInTail(node *&head)
+{
+    node *temp = head;
+    while (temp->next->next != NULL)
+    {
+        temp = temp->next;
+    }
+    node *todelete = temp->next;
+    temp->next = NULL;
+    delete todelete;
+}
+
+void deleateHead(node *&head)
+{
+    node *todelete = head;
+    head = head->next;
+    delete todelete;
+}
+void deleteAfterPosition(node *&head, int pos)
+{
+    node *temp = head;
+    int count = 1;
+    while (temp != NULL && count != pos)
+    {
+        temp = temp->next;
+        count++;
+    }
+    if (temp != NULL)
+    {
+        node *todelete = temp->next;
+        temp->next = temp->next->next;
+        delete todelete;
+    }
+}
 
 void display(node *head)
 {
@@ -120,6 +154,8 @@ int main()
     insertAfterPosition(head, 6, 3);
     display(head);
     insertAfterValue(head, 10, 3);
+    display(head);
+    deleateHead(head);
     display(head);
 
     return 0;
